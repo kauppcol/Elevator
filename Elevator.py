@@ -44,18 +44,14 @@ class Elevator:
 
 
     def select_floor(self, floor):
-        if self.curr_floor == floor:
-                self.open_doors()
-                self.close_doors()
-        else:
-            # Update min/max floor selected and start moving if not already
-            self.floor_set.add(floor)
-            self.max_floor = max(floor, self.max_floor)
-            self.min_floor = min(floor, self.min_floor)
-            if not self.is_moving:
-                self.direction = 'UP' if self.curr_floor < floor else 'DOWN'
-                thread = Thread(target=self.move)
-                thread.start()
+        # Update min/max floor selected and start moving if not already
+        self.floor_set.add(floor)
+        self.max_floor = max(floor, self.max_floor)
+        self.min_floor = min(floor, self.min_floor)
+        if not self.is_moving:
+            self.direction = 'UP' if self.curr_floor < floor else 'DOWN' if self.curr_floor > floor else 'STAY'
+            thread = Thread(target=self.move)
+            thread.start()
 
     def move(self):
         self.is_moving = True
