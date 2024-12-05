@@ -1,9 +1,9 @@
 '''
 A class simulating an elevator
-Assumptions: The elevator is iniitally vacant and must be requested from the outside. Once occupied, the elevator will travel to all
-             selected floors, stopping to pick up any outside requests that want to go in the same direction as the elevator. Once all
-             selected floors have been reached, the elevator will travel to the earliest unprocessed request or otherwise stop if there
-             are no pending requests.
+Assumptions: The elevator is iniitally vacant and must be requested from the outside. 
+             Once occupied, the elevator will travel to all selected floors and stop along the way to pick up people that want to go in the same direction as the elevator.
+             Once all selected floors have been reached, the elevator will travel to the earliest unprocessed request or otherwise stop if there are no pending requests.
+             Everyone who enters the elevator will select a floor and depart (i.e. the elevator will always be empty once all selected floors are reached). 
 
 Features not implemented: Actual logic for opening/closing/moving up and down, emergency button, weight limits, etc.
 '''
@@ -150,3 +150,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
